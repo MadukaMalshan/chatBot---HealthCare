@@ -52,5 +52,3 @@ userInput.addEventListener('keydown', function(event) {
         sendText();
     }
 });
-
-AOS.init();
