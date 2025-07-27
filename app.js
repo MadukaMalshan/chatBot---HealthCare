@@ -24,11 +24,10 @@ function removeTypingAnimation() {
 
 // Predefined regular questions for travel planning
 function showPredefinedQuestions() {
-    const answersDiv = document.getElementById('answers');
+    const inputContainer = document.querySelector('.input-container');
     const questions = [
         "Plan a 3-day trip to Kandy on a budget",
         "Suggest hotels in Colombo for families",
-        "What are must-try foods in Galle?",
         "Best places for adventure in Sri Lanka"
     ];
     const container = document.createElement('div');
@@ -40,11 +39,11 @@ function showPredefinedQuestions() {
         btn.onclick = function() {
             document.getElementById('userInput').value = q;
             sendText();
-            container.remove();
+            // container.remove(); // Don't remove so user can ask multiple
         };
         container.appendChild(btn);
     });
-    answersDiv.appendChild(container);
+    inputContainer.parentNode.insertBefore(container, inputContainer);
 }
 
 window.onload = function() {
