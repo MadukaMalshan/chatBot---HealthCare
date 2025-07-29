@@ -58,7 +58,14 @@ function sendText() {
     appendMessage(userText, 'user');
     input.value = '';
     showTypingAnimation();
-    // Custom travel planning logic
+    
+    if (/^what\s+is\s+your\s+name\??$/i.test(userText)) {
+        setTimeout(() => {
+            removeTypingAnimation();
+            appendMessage("I am your official chat bot. Plan your trip with me", 'ai');
+        }, 700);
+        return;
+    }
     if (/plan.*trip.*kandy/i.test(userText)) {
         setTimeout(() => {
             removeTypingAnimation();
