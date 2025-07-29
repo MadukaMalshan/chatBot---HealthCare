@@ -96,7 +96,8 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, #e0f7fa 0%, #c8e6c9 100%);
+  /* AI travel partner background: scenic travel image with overlay */
+  background: linear-gradient(120deg, #a1c4fdcc 0%, #c2e9fbcc 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
   position: relative;
   display: flex;
   justify-content: center;
@@ -107,10 +108,9 @@ body::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://cdn-icons-png.flaticon.com/512/201/201623.png') no-repeat 5vw 10vh,
-              url('https://cdn-icons-png.flaticon.com/512/684/684908.png') no-repeat 90vw 80vh,
-              url('https://cdn-icons-png.flaticon.com/512/616/616554.png') no-repeat 50vw 90vh;
-  opacity: 0.08;
+  /* Remove previous icons for a clean scenic look */
+  background: none;
+  opacity: 1;
   pointer-events: none;
   z-index: 0;
 }
@@ -222,4 +222,73 @@ body::before {
 .send-btn:focus {
     outline: 2px solid #2d8fdd;
     outline-offset: 2px;
+}
+/* Responsive adjustments for chat bot UI */
+@media (max-width: 900px) {
+  .chat-wrapper {
+    width: 98vw;
+    height: 96vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .chat-box {
+    padding: 18px 2vw 18px 2vw;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .chat-wrapper {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+  .chat-title {
+    font-size: 1.2rem;
+    padding: 6px 0;
+  }
+  .chat-box {
+    padding: 8px 1vw 8px 1vw;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .bubble {
+    font-size: 11px;
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+  .bubble.typing {
+    font-size: 10px;
+    padding: 4px 6px;
+    gap: 2px;
+  }
+  .question-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+  .input-container {
+    padding: 4px;
+    border-radius: 0 0 12px 12px;
+  }
+  .chat-input {
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 12px;
+    margin-right: 6px;
+  }
+  .send-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+  .helper-text {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
 }
